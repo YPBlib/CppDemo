@@ -1,14 +1,17 @@
 #include<cstdio>
 #include<iostream>
 #include<string>
+#include<cctype>
 #include<cstdlib>
 #include<typeinfo>
 #include"try.h"
 #include<vector>
-using namespace::std;
+//using namespace::std;
 using std::string;
+using std::vector;
 using std::cin;
 using std::cout;
+using std::endl;
 static int v = 0;
 int foo(int i);
 auto func(int a);
@@ -16,8 +19,8 @@ auto func(int a);
 
 int main(void)
 {
-
-
+	cin.clear();
+	/******************* const auto & ********************************/
 	// 	const int coni1 = 1;	int* p1 = &coni1;   普通指针不能指向const
 	//	int const i1 = 1;	int & r1 = i1;	普通引用不能引用const
 	int i2 = 11;		const int * const p2 = &i2;
@@ -26,16 +29,16 @@ int main(void)
 	//	int i3 = 1;  decltype(p2) atp4 = &i3; *atp4 = 5;	//decltype 的顶层const底层const均被保留
 	//	const int coni3 = 4, ii3 = 5, &rconi3 = coni3; rconi3 = 6;		//Wrong ii3和rconi3 也是const
 	//	constexpr int  *p = &v; 	*p = 5;		p = &i2; //p是顶层const
-	int i3 = 3;		int&r3 = i3;	int*pi3 = &i3;
+	int i3 = 3;		int& r3 = i3;	int* pi3 = &i3;
 	auto ati3 = i3;//不相关
 	auto atii3 = r3;	//不相关
 	auto atiii3 = *pi3;		//不相关
-	auto &atri3 = i3;	//相关
-	auto &atrii3 = r3;	//相关
-	auto &atriii3 = *pi3;		//相关	
-								//	decltype(i3) dpi3 ;		//相关
-								//	typedef decltype(*(&i3)) dpi3;		dpi3 wtf = i3;  //相关
-								//	decltype(i3=0) dpasri3 = i3;	//相关
+	auto& atri3 = i3;	//相关
+	auto& atrii3 = r3;	//相关
+	auto& atriii3 = *pi3;		//相关	
+//	decltype(i3) dpi3 ;		//相关
+//	typedef decltype(*(&i3)) dpi3;		dpi3 wtf = i3;  //相关
+//	decltype(i3=0) dpasri3 = i3;	//相关
 
 	cout << i3 << endl;
 	decltype(r3) dpii3 = r3;	//相关
@@ -51,7 +54,9 @@ int main(void)
 
 	double price = 0.;
 	//	std::cin >> data1.bookNo >> data1.units >> price;
-	// initialization
+
+
+	/******************************** initialization *******************************/
 	string initializers1;
 	string initializers2(initializers1);	//direct
 	string initializers3 = initializers1;	//copy
@@ -61,37 +66,48 @@ int main(void)
 	int initializera2 = { 0 };	//copy
 	int initializera3{ 0 };	//direct
 	int initializera4(0);	//direct
-							//string
-							//	cin >> initializers1;
-							//	cout << initializers1 << endl;
-							//	getline(cin,initializers1);
-	cout << initializers1;
+
+
+
+/************************** string ********************************************/
 	initializers1.size();
 	//	"132465".size();		//wrong!!! string literals are not STL strings;
-	string sss = "   " + initializers5;
+	const string sss = "   " + initializers4;
+	for(auto& c:sss)
+	{
+		cout << c << endl;
+	}
 
+	const string hexdigits = "0123456789ABCDEF";
+	cout << "Enter digits<=15 ,seperated by ' ' , input 'q' when finished" << endl;
+	string result = "";
+	string::size_type n;
+	while(cin>>n)
+	{
+		if (n < hexdigits.size())
+			result += hexdigits[n];
+	}
+	cout << result << endl;
+	/************************** vector ****************************************************/
+	vector<int> ivec;				//default initialization: ivec has no elements
+	ivec.push_back(2);
+	//vector<int&> rivec;			//Wrong references are not objects
+	vector<string> svec = { "a","an","the" };
+	for(auto c:svec)
+	{
+		//svec.push_back(c);			//Wrong! body of range for must not change the size of the sequence over which it is itersting
+	}
+	vector<string> svec1{ "a","an","the" };
+	//vector<string> svec12("a","an","the");		//wrong
+	vector<string> svec2(svec);
+	vector<string>svec3 = svec2;
+	vector<string> svec4(10, "ha");
+	vector<string>svec5{ 10,"ha" };
+	vector<string> svec6{ 10 };
+	vector<string> svec7(10);
+	/***************************** iterator ********************************/
 
-
-
-
-
-
-
-
-
+	
 	return 0;
 }
 
-int foo(int i)
-{
-	printf("%d %d %d \n", i++ * ++i, i-- - i--, ++i);
-	return ++i + i++;
-}
-
-auto func(int a)
-{
-	decltype(nullptr)l = nullptr;
-	int*p = nullptr;
-	return p;
-
-}
