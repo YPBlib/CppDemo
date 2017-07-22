@@ -8,6 +8,7 @@
 #include<cstddef>
 #include"try.h"
 #include<vector>
+#include<stdexcept>
 //using namespace::std;
 using std::string;
 using std::vector;
@@ -16,6 +17,8 @@ using std::cout;
 using std::endl;
 using std::begin;
 using std::end;
+using std::runtime_error;
+
 static int v = 0;
 
 
@@ -41,10 +44,10 @@ int main(void)
 	auto& atriii3 = *pi3;		//相关
 
 	using inttwelve = int[12];
-	typedef inttwelve onefourfour[12];	
-//	decltype(i3) dpi3 ;		//相关
-//	typedef decltype(*(&i3)) dpi3;		dpi3 wtf = i3;  //相关
-//	decltype(i3=0) dpasri3 = i3;	//相关
+	typedef inttwelve onefourfour[12];
+	//	decltype(i3) dpi3 ;		//相关
+	//	typedef decltype(*(&i3)) dpi3;		dpi3 wtf = i3;  //相关
+	//	decltype(i3=0) dpasri3 = i3;	//相关
 
 	cout << i3 << endl;
 	decltype(r3) dpii3 = r3;	//相关
@@ -53,9 +56,9 @@ int main(void)
 	decltype((((i3)))) dpri3 = i3;	//相关,括号中为int变量时返回引用
 
 	decltype((2 % 0))l;  //有效
-//	const int const* * const* p = nullptr;  //const的位置有没有其它方法
+						 //	const int const* * const* p = nullptr;  //const的位置有没有其它方法
 	const int coni4 = 1;
-//	auto z = p;		//z保留了几层const？？？
+	//	auto z = p;		//z保留了几层const？？？
 
 
 	double price = 0.;
@@ -75,11 +78,11 @@ int main(void)
 
 
 
-/************************** string ********************************************/
+							/************************** string ********************************************/
 	initializers1.size();
 	//	"132465".size();		//wrong!!! string literals are not STL strings;
 	const string sss = "   " + initializers4;
-	for(auto& c:sss)
+	for (auto& c : sss)
 	{
 		cout << c << endl;
 	}
@@ -88,7 +91,7 @@ int main(void)
 	cout << "Enter digits<=15 ,seperated by ' ' , input 'q' when finished" << endl;
 	string result = "";
 	string::size_type n;
-	while(cin>>n)
+	while (cin >> n)
 	{
 		if (n < hexdigits.size())
 			result += hexdigits[n];
@@ -99,7 +102,7 @@ int main(void)
 	ivec.push_back(2);
 	//vector<int&> rivec;			//Wrong references are not objects
 	vector<string> svec = { "a","an","the" };
-	for(auto c:svec)
+	for (auto c : svec)
 	{
 		//svec.push_back(c);			//Wrong! body of range for must not change the size of the sequence over which it is itersting
 	}
@@ -114,54 +117,96 @@ int main(void)
 	/***************************** iterator ********************************/
 
 
-	/*    
-    string s{"123456789"};
-    
-    string::iterator sit;
-    sit=s.begin();
-    string__const_iterator csit=s.cbegin();
-    string::size_type sst;
-    vector<int>::iterator ivecit;
-    vector<int>::size_type ivecst; 
-    vector<int>::const_iterator iveccoit;
-*/
-/*
-    vector<string> svec{"abc","  ","def,","."," "};
-    vector<string>::iterator svecit=svec.begin();
-    ++svecit;
-    if(!svecit->empty())
-        cout<<"svecit not  empty"<<endl;          //whitespace is not empty
-    ++svecit;
-    cout<<*svecit<<endl;
-*/
+	/*
+	string s{"123456789"};
 
-/*
-    string::difference_type sdt=s.cbegin()-s.cend();
-*/
-    
-    /************************************* Array  *************************/
-/*
-    int arr[]={1,2,3};
-    int a[3];
-    a=arr;          //Wrong    
-*/
-   
-	int a[5]={1,2,3,4,5};
-	vector<int> ivec10(begin(a),end(a));
+	string::iterator sit;
+	sit=s.begin();
+	string__const_iterator csit=s.cbegin();
+	string::size_type sst;
+	vector<int>::iterator ivecit;
+	vector<int>::size_type ivecst;
+	vector<int>::const_iterator iveccoit;
+	*/
+	/*
+	vector<string> svec{"abc","  ","def,","."," "};
+	vector<string>::iterator svecit=svec.begin();
+	++svecit;
+	if(!svecit->empty())
+	cout<<"svecit not  empty"<<endl;          //whitespace is not empty
+	++svecit;
+	cout<<*svecit<<endl;
+	*/
+
+	/*
+	string::difference_type sdt=s.cbegin()-s.cend();
+	*/
+
+	/************************************* Array  *************************/
+	/*
+	int arr[]={1,2,3};
+	int a[3];
+	a=arr;          //Wrong
+	*/
+
+	int a[5] = { 1,2,3,4,5 };
+	vector<int> ivec10(begin(a), end(a));
 	/****		Multidimentional Array	***/
-    int mula[5][5][5]={0,};
-	for(auto& level1:mula)
-		for(auto& level2: level1)
-			for(auto level3:level2)
+	int mula[5][5][5] = { 0, };
+	for (auto& level1 : mula)
+		for (auto& level2 : level1)
+			for (auto level3 : level2)
 			{
-				cout<<level3<<endl;
+				cout << level3 << endl;
 			}
+	/********************	Expressions	********************/
+	//	cout << -100 % 3 << -100 % -3 << 100 % -3 << endl; // m%n has the same sigh as m
+	/*
+	int i = 5;
+	if (i)
+	cout << "i!=1 but is true" << endl;
+	if (i == true)
+	cout << "i !=1 but == true" << endl;
+	*/
+	vector<int> veci{ 1,2,3,4,5 };
+	cout << sizeof(vector<vector<string> >) << sizeof(vector<string>) << sizeof(string) << endl;
+	int* iptr1 = 0;			//That works.
+	void* vptr1 = iptr1;		// ok
+			/*						cast					*/		
+	//			static_cast
+	int i = 1, j = 1;
+	double slope = static_cast<double>(j) / i;		
+	//			const_cast
+	const int& cfun(int a);
+	void cfunc(int& a);
+	cfunc( const_cast<int&>( cfun(10) ) );
+	//			reinterpret_cast
+	void* va=nullptr;
+	int i4 = reinterpret_cast<int>(va);
+	/**************			try blocks and exception handling		******************/
+	//	throw expression
+	vector<float> fvec1{ 1.,2.,3. };
+	vector<float> fvec2{ 0 };
+	vector<float>::const_iterator fit1 = fvec1.cend();
+	vector<float>::const_iterator fit2 = fvec2.cend();
+/*
+	if (1)
+		throw runtime_error("Here is an exception");
+*/
+	
 
 
 
+	return 0;
 
-    return 0;
+}
 
-
+const int& cfun(int a)
+{
+	return a;
+}
+void cfunc(int& a)
+{
+	a++;
 }
 
