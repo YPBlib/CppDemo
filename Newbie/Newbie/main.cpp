@@ -4,6 +4,8 @@
 #include<cctype>
 #include<cstdlib>
 #include<typeinfo>
+#include<iterator>
+#include<cstddef>
 #include"try.h"
 #include<vector>
 //using namespace::std;
@@ -12,15 +14,16 @@ using std::vector;
 using std::cin;
 using std::cout;
 using std::endl;
+using std::begin;
+using std::end;
 static int v = 0;
-int foo(int i);
-auto func(int a);
+
 
 
 int main(void)
 {
 	cin.clear();
-	/******************* const auto & ********************************/
+	/******************* const auto & and other keywords********************************/
 	// 	const int coni1 = 1;	int* p1 = &coni1;   普通指针不能指向const
 	//	int const i1 = 1;	int & r1 = i1;	普通引用不能引用const
 	int i2 = 11;		const int * const p2 = &i2;
@@ -35,7 +38,10 @@ int main(void)
 	auto atiii3 = *pi3;		//不相关
 	auto& atri3 = i3;	//相关
 	auto& atrii3 = r3;	//相关
-	auto& atriii3 = *pi3;		//相关	
+	auto& atriii3 = *pi3;		//相关
+
+	using inttwelve = int[12];
+	typedef inttwelve onefourfour[12];	
 //	decltype(i3) dpi3 ;		//相关
 //	typedef decltype(*(&i3)) dpi3;		dpi3 wtf = i3;  //相关
 //	decltype(i3=0) dpasri3 = i3;	//相关
@@ -47,9 +53,9 @@ int main(void)
 	decltype((((i3)))) dpri3 = i3;	//相关,括号中为int变量时返回引用
 
 	decltype((2 % 0))l;  //有效
-	const int const* * const* p = nullptr;  //const的位置有没有其它方法
+//	const int const* * const* p = nullptr;  //const的位置有没有其它方法
 	const int coni4 = 1;
-	auto z = p;		//z保留了几层const？？？
+//	auto z = p;		//z保留了几层const？？？
 
 
 	double price = 0.;
@@ -107,7 +113,55 @@ int main(void)
 	vector<string> svec7(10);
 	/***************************** iterator ********************************/
 
-	
-	return 0;
+
+	/*    
+    string s{"123456789"};
+    
+    string::iterator sit;
+    sit=s.begin();
+    string__const_iterator csit=s.cbegin();
+    string::size_type sst;
+    vector<int>::iterator ivecit;
+    vector<int>::size_type ivecst; 
+    vector<int>::const_iterator iveccoit;
+*/
+/*
+    vector<string> svec{"abc","  ","def,","."," "};
+    vector<string>::iterator svecit=svec.begin();
+    ++svecit;
+    if(!svecit->empty())
+        cout<<"svecit not  empty"<<endl;          //whitespace is not empty
+    ++svecit;
+    cout<<*svecit<<endl;
+*/
+
+/*
+    string::difference_type sdt=s.cbegin()-s.cend();
+*/
+    
+    /************************************* Array  *************************/
+/*
+    int arr[]={1,2,3};
+    int a[3];
+    a=arr;          //Wrong    
+*/
+   
+	int a[5]={1,2,3,4,5};
+	vector<int> ivec10(begin(a),end(a));
+	/****		Multidimentional Array	***/
+    int mula[5][5][5]={0,};
+	for(auto& level1:mula)
+		for(auto& level2: level1)
+			for(auto level3:level2)
+			{
+				cout<<level3<<endl;
+			}
+
+
+
+
+    return 0;
+
+
 }
 
