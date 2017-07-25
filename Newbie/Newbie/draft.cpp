@@ -17,9 +17,11 @@ using std::cout;
 using std::endl;
 using std::begin;
 using std::end;
+using std::istream;
 using std::runtime_error;
 
 static int v = 0;
+istream& readit(istream& is, data& it);
 
 
 
@@ -194,11 +196,33 @@ int main(void)
 		throw runtime_error("Here is an exception");
 */
 	
-
+	data toal, tran;
+	data& trans = tran;
+	
 
 
 	return 0;
 
+}
+data& data::merge(const data& dat)
+{
+	d += dat.d;
+	a += dat.a;
+	return *this;
+}
+
+istream& readit(istream& is, data& it)
+{
+	double p = 0;
+	is >> it.str >> it.a >> p;
+	it.d = p*it.a;
+	return is;
+}
+
+
+data::data(std::istream&is)
+{
+	readit(is, *this);
 }
 
 const int& cfun(int a)
