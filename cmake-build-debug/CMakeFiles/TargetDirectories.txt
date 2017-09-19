@@ -1,0 +1,3 @@
+/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/CMakeFiles/draft.dir

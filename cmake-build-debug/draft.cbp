@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="draft"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="draft">
+				<Option output="/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/draft" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 draft"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="draft/fast">
+				<Option output="/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/draft" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 draft/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/draft.cpp">
+			<Option target="draft"/>
+		</Unit>
+		<Unit filename="/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/try.h">
+			<Option target="draft"/>
+		</Unit>
+		<Unit filename="/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

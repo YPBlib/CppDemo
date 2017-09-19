@@ -41,38 +41,38 @@ int main(void)
 	cin.clear();
 	/******************* const auto & and other keywords********************************/
 /*
-	// 	const int coni1 = 1;	int* p1 = &coni1;   ÆÕÍ¨Ö¸Õë²»ÄÜÖ¸Ïòconst
-	//	int const i1 = 1;	int & r1 = i1;	ÆÕÍ¨ÒıÓÃ²»ÄÜÒıÓÃconst
+	// 	const int coni1 = 1;	int* p1 = &coni1;   æ™®é€šæŒ‡é’ˆä¸èƒ½æŒ‡å‘const
+	//	int const i1 = 1;	int & r1 = i1;	æ™®é€šå¼•ç”¨ä¸èƒ½å¼•ç”¨const
 	int i2 = 11;		const int * const p2 = &i2;
-	//	int & const conrr2 = i2;	const±»ºöÂÔ	,ÓĞÊ±Ò²±»ÊÓÎª²»ºÏ·¨µÄĞ´·¨
-	//	int* const pp2 = &i2; int ii2 = 6l; auto atpp2 = p2; atpp2 = &ii2; *atpp2 = 5; auto±£Áôµ×²ãconst£¬Å×Æú¶¥²ãconst
-	//	int i3 = 1;  decltype(p2) atp4 = &i3; *atp4 = 5;	//decltype µÄ¶¥²ãconstµ×²ãconst¾ù±»±£Áô
-	//	const int coni3 = 4, ii3 = 5, &rconi3 = coni3; rconi3 = 6;		//Wrong ii3ºÍrconi3 Ò²ÊÇconst
-	//	constexpr int  *p = &v; 	*p = 5;		p = &i2; //pÊÇ¶¥²ãconst
+	//	int & const conrr2 = i2;	constè¢«å¿½ç•¥	,æœ‰æ—¶ä¹Ÿè¢«è§†ä¸ºä¸åˆæ³•çš„å†™æ³•
+	//	int* const pp2 = &i2; int ii2 = 6l; auto atpp2 = p2; atpp2 = &ii2; *atpp2 = 5; autoä¿ç•™åº•å±‚constï¼ŒæŠ›å¼ƒé¡¶å±‚const
+	//	int i3 = 1;  decltype(p2) atp4 = &i3; *atp4 = 5;	//decltype çš„é¡¶å±‚conståº•å±‚constå‡è¢«ä¿ç•™
+	//	const int coni3 = 4, ii3 = 5, &rconi3 = coni3; rconi3 = 6;		//Wrong ii3å’Œrconi3 ä¹Ÿæ˜¯const
+	//	constexpr int  *p = &v; 	*p = 5;		p = &i2; //pæ˜¯é¡¶å±‚const
 	int i3 = 3;		int& r3 = i3;	int* pi3 = &i3;
-	auto ati3 = i3;//²»Ïà¹Ø
-	auto atii3 = r3;	//²»Ïà¹Ø
-	auto atiii3 = *pi3;		//²»Ïà¹Ø
-	auto& atri3 = i3;	//Ïà¹Ø
-	auto& atrii3 = r3;	//Ïà¹Ø
-	auto& atriii3 = *pi3;		//Ïà¹Ø
+	auto ati3 = i3;//ä¸ç›¸å…³
+	auto atii3 = r3;	//ä¸ç›¸å…³
+	auto atiii3 = *pi3;		//ä¸ç›¸å…³
+	auto& atri3 = i3;	//ç›¸å…³
+	auto& atrii3 = r3;	//ç›¸å…³
+	auto& atriii3 = *pi3;		//ç›¸å…³
 
 	using inttwelve = int[12];
 	typedef inttwelve onefourfour[12];
-	//	decltype(i3) dpi3 ;		//Ïà¹Ø
-	//	typedef decltype(*(&i3)) dpi3;		dpi3 wtf = i3;  //Ïà¹Ø
-	//	decltype(i3=0) dpasri3 = i3;	//Ïà¹Ø
+	//	decltype(i3) dpi3 ;		//ç›¸å…³
+	//	typedef decltype(*(&i3)) dpi3;		dpi3 wtf = i3;  //ç›¸å…³
+	//	decltype(i3=0) dpasri3 = i3;	//ç›¸å…³
 
 	cout << i3 << endl;
-	decltype(r3) dpii3 = r3;	//Ïà¹Ø
-	decltype(r3 + 0) dpiij3 = r3;	//²»Ïà¹Ø
-	decltype(*pi3) dpiii3 = *pi3;	//Ïà¹Ø
-	decltype((((i3)))) dpri3 = i3;	//Ïà¹Ø,À¨ºÅÖĞÎªint±äÁ¿Ê±·µ»ØÒıÓÃ
+	decltype(r3) dpii3 = r3;	//ç›¸å…³
+	decltype(r3 + 0) dpiij3 = r3;	//ä¸ç›¸å…³
+	decltype(*pi3) dpiii3 = *pi3;	//ç›¸å…³
+	decltype((((i3)))) dpri3 = i3;	//ç›¸å…³,æ‹¬å·ä¸­ä¸ºintå˜é‡æ—¶è¿”å›å¼•ç”¨
 
-	decltype((2 % 0))l;  //ÓĞĞ§
-						 //	const int const* * const* p = nullptr;  //constµÄÎ»ÖÃÓĞÃ»ÓĞÆäËü·½·¨
+	decltype((2 % 0))l;  //æœ‰æ•ˆ
+						 //	const int const* * const* p = nullptr;  //constçš„ä½ç½®æœ‰æ²¡æœ‰å…¶å®ƒæ–¹æ³•
 	const int coni4 = 1;
-	//	auto z = p;		//z±£ÁôÁË¼¸²ãconst£¿£¿£¿
+	//	auto z = p;		//zä¿ç•™äº†å‡ å±‚constï¼Ÿï¼Ÿï¼Ÿ
 
 
 	double price = 0.;
