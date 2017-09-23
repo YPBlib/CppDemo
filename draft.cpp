@@ -14,6 +14,7 @@
 #include<forward_list>
 #include<array>
 #include<string>
+#include<memory>
 #include"try.h"
 //using namespace::std;
 using std::vector;
@@ -336,6 +337,7 @@ int main(void)
 	flstin1.resize(0x10);
 	flstin1.resize(0x20,0xff);
 */
+/*
 	vector<int> vin4(3, 3);
 	vin4.reserve(60);
 	cout << vin4.capacity() << endl;
@@ -346,24 +348,13 @@ int main(void)
 	vin4.insert(vin4.cbegin(), 3355, 3355);
 	cout << vin4.capacity() << endl;
 	cout << vin4.size() << endl;
-	
-	
-
-	
+*/
 	
 	
 	
-
-
-
-
-
-
-
+	std::shared_ptr<string> sdps1;
 	
-
-
-
+	
 
 	
 	return 0;
