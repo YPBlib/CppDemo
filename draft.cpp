@@ -1,5 +1,6 @@
 #include<cstdio>
 #include<iostream>
+#include<ios>
 #include<fstream>
 #include<sstream>
 #include<cctype>
@@ -16,6 +17,7 @@
 #include<string>
 #include<memory>
 #include"try.h"
+#include "Draft\\Draft\\tty.h"
 //using namespace::std;
 using std::vector;
 using std::deque;
@@ -30,11 +32,17 @@ using std::begin;
 using std::end;
 using std::istream;
 using std::ostream;
+using std::ifstream;
+using std::ofstream;
+using std::istringstream;
+using std::ostringstream;
+using std::nounitbuf;
 using std::runtime_error;
+
 
 static int v = 0;
 istream& readit(istream& is, data& it);
-
+ostream& putit(ostream& os, data& it);
 
 
 int main(void)
@@ -349,9 +357,46 @@ int main(void)
 	cout << vin4.capacity() << endl;
 	cout << vin4.size() << endl;
 */
+	/******				IOstream			****/
+	cin.eof();
+	cin.fail();
+	cin.bad();
+	cin.good();
+	cin.clear();
+	auto originST = cin.rdstate();
+	cin.clear();
+	cin.setstate(originST);
 	
+	cin.clear(cin.rdstate()& ~cin.failbit & ~cin.badbit);
+	string ostring{ "test io" };
+	cout << nounitbuf;
 	
-	
+	cout << ostring;		//???? what causes the buffer to be flushed ???
+	cout << endl;
+	ifstream inn("Draft\\Draft\\whichwhere.txt");
+	ofstream onn("Draft\\Draft\\wherewhich.txt");
+	data eg1;
+	if (readit(inn, eg1))
+	{
+		data trans;
+		while (readit(inn, trans))
+		{
+			if (eg1.fetchd() == trans.fetchd())
+			{
+				eg1.merge(trans);
+			}
+			else
+			{
+				putit(onn, eg1);
+				eg1 = trans;
+			}
+		}
+		putit(onn, eg1);
+	}
+	else
+	{
+		std::cerr << "No data" << endl;
+	}
 	std::shared_ptr<string> sdps1;
 	
 	
@@ -376,18 +421,14 @@ istream& readit(istream& is, data& it)
 	return is;
 }
 
+ostream& putit(ostream& os, data& it)
+{
+	os << it.fetcha() << it.fetchd() << it.fetchstr() << endl;
+	return os;
+}
+
 data::data(std::istream&is)
 {
 	readit(is, *this);
-}
-
-const int& cfun(int a)
-{
-	return a;
-}
-
-void cfunc(int& a)
-{
-	a++;
 }
 

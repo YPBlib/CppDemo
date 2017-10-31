@@ -5,9 +5,11 @@
 #define TTRY_Y
 using std::string;
 using std::istream;
+using std::ostream;
 class data
 {
 	friend istream& readit(istream& is, data& it);
+	friend ostream& putit(ostream& os, data& it);
 	//	constructors
 public:
 	data() = default;
