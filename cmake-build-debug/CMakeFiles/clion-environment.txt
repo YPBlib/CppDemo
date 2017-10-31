@@ -1,2 +1,0 @@
-Options: 
-CMake: 3.8.2@/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/DEXE/Clion/clion-2017.2.2/bin/cmake/bin/cmake

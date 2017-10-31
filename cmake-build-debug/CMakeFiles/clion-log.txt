@@ -1,4 +1,0 @@
-/media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/DEXE/Clion/clion-2017.2.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp
--- Configuring done
--- Generating done
--- Build files have been written to: /media/yuan/b6926a74-2aa1-41e5-a8dc-dc88e5d63385/file/codes/TryingCodingInCpp/cmake-build-debug
