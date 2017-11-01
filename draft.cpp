@@ -17,7 +17,7 @@
 #include<string>
 #include<memory>
 #include"try.h"
-#include "Draft\\Draft\\tty.h"
+//#include "Draft\\Draft\\tty.h"
 //using namespace::std;
 using std::vector;
 using std::deque;

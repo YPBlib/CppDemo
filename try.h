@@ -1,11 +1,75 @@
 #pragma once
-#include<string>
-#include<memory>
 #ifndef TTRY_H
 #define TTRY_Y
+#include<cstdio>
+#include<iostream>
+#include<ios>
+#include<fstream>
+#include<sstream>
+#include<cctype>
+#include<cstdlib>
+#include<typeinfo>
+#include<iterator>
+#include<cstddef>
+#include<stdexcept>
+#include<vector>
+#include<deque>
+#include<list>
+#include<forward_list>
+#include<array>
+#include<string>
+#include<memory>
+#include"try.h"
+//#include "Draft\\Draft\\tty.h"
+//using namespace::std;
+using std::vector;
+using std::deque;
+using std::list;
+using std::forward_list;
+using std::array;
 using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::begin;
+using std::end;
 using std::istream;
 using std::ostream;
+using std::ifstream;
+using std::ofstream;
+using std::istringstream;
+using std::ostringstream;
+using std::nounitbuf;
+using std::runtime_error;
+
+class adt
+{
+	string fetchname() const { return this->name; }
+	adt& merge(const adt& a);
+
+	static constexpr double commonvalue = 0;
+	string name;
+	int integer;
+	double f;
+};
+
+adt addadt(const adt& a, const adt& b);
+ostream& printadt(ostream& os, const adt& a);
+istream& readit(istream& is, const adt& a);
+
+adt& adt::merge(const adt& a)
+{
+	this->name += a.name;
+}
+
+
+
+
+
+
+
+
+
 class data
 {
 	friend istream& readit(istream& is, data& it);
