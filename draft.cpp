@@ -17,7 +17,6 @@
 #include<string>
 #include<memory>
 #include"try.h"
-//#include "Draft\\Draft\\tty.h"
 //using namespace::std;
 using std::vector;
 using std::deque;
@@ -38,13 +37,7 @@ using std::istringstream;
 using std::ostringstream;
 using std::nounitbuf;
 using std::runtime_error;
-
-
 static int v = 0;
-istream& readit(istream& is, data& it);
-ostream& putit(ostream& os, data& it);
-
-
 int main(void)
 {
 	cin.clear();
@@ -357,7 +350,9 @@ int main(void)
 	cout << vin4.capacity() << endl;
 	cout << vin4.size() << endl;
 */
+
 	/******				IOstream			****/
+/*
 	cin.eof();
 	cin.fail();
 	cin.bad();
@@ -398,37 +393,20 @@ int main(void)
 		std::cerr << "No data" << endl;
 	}
 	std::shared_ptr<string> sdps1;
-	
-	
+*/	
+
+	/*C*****			classes				****/
+	class globalscope
+	{
+	public:
+		int v{3};
+		int testscope(void){ return ::v; }
+	};
+	globalscope a;
+	cout << a.testscope() << a.v << endl;
 
 	
-	return 0;
+    return 0;
 
-}
-
-data& data::merge(const data& dat)
-{
-	d += dat.d;
-	a += dat.a;
-	return *this;
-}
-
-istream& readit(istream& is, data& it)
-{
-	double p = 0;
-	is >> it.str >> it.a >> p;
-	it.d = p*it.a;
-	return is;
-}
-
-ostream& putit(ostream& os, data& it)
-{
-	os << it.fetcha() << it.fetchd() << it.fetchstr() << endl;
-	return os;
-}
-
-data::data(std::istream&is)
-{
-	readit(is, *this);
 }
 
