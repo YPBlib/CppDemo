@@ -1,4 +1,3 @@
-#pragma once
 #ifndef TTRY_H
 #define TTRY_Y
 #include<cstdio>

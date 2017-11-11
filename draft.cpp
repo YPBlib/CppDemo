@@ -16,6 +16,7 @@
 #include<array>
 #include<string>
 #include<memory>
+#include<new>
 #include"try.h"
 //using namespace::std;
 using std::vector;
@@ -405,8 +406,24 @@ int main(void)
 	globalscope a;
 	cout << a.testscope() << a.v << endl;
 
-	
+	/************			dynamic memory				************/
+	int *newp1 = new (std::nothrow) int();
+	std::shared_ptr<int> sp2(new int(1024));
+	std::shared_ptr<int> sp3 = static_cast<std::shared_ptr<int>>(newp1);
+	std::shared_ptr<int> sp4 = std::make_shared<int>(24);
+	int* ptoint6 = sp4.get();
+	sp3 = sp4 = sp2 = nullptr;
+	int mySpDeleter(std::shared_ptr<int> sp0);
+	auto x = std::make_shared<int>(20);
+	mySpDeleter(x);
+	cout << *x << endl;
     return 0;
 
 }
 
+int mySpDeleter(std::shared_ptr<int> sp0)
+{
+	int temp = *sp0;
+	sp0 = nullptr;
+	return temp;
+}
