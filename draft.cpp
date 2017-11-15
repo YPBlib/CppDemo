@@ -37,6 +37,7 @@ using std::ofstream;
 using std::istringstream;
 using std::ostringstream;
 using std::nounitbuf;
+using std::allocator;
 using std::runtime_error;
 static int v = 0;
 int main(void)
@@ -408,17 +409,39 @@ int main(void)
 
 	/************			dynamic memory				************/
 	int *newp1 = new (std::nothrow) int();
+	int *newp2 = new int[10];
+	int *newp3 = new int[10]();
+	int *newp4 = new int[10]{ 1,2,3,4 };
 	std::shared_ptr<int> sp2(new int(1024));
 	std::shared_ptr<int> sp3 = static_cast<std::shared_ptr<int>>(newp1);
 	std::shared_ptr<int> sp4 = std::make_shared<int>(24);
 	int* ptoint6 = sp4.get();
 	sp3 = sp4 = sp2 = nullptr;
-	int mySpDeleter(std::shared_ptr<int> sp0);
+	int mySpDeleter(std::shared_ptr<int> sp0);		// using our own deletion code
 	auto x = std::make_shared<int>(20);
 	mySpDeleter(x);
 	cout << *x << endl;
-    return 0;
+	//unique_ptr
+	std::unique_ptr<int> up1(new int(3));
+	std::unique_ptr<int> up2(up1.release());
+	//weak_ptr
+	std::weak_ptr<int> wp1(sp3);
+	auto sp1 = wp1.lock();
+	wp1.use_count(), wp1.expired();
+	wp1.reset();
 
+	delete[] newp1, newp2, newp3, newp4;
+	std::unique_ptr<int[]> up3(new int[10]{ 0,1,2 });
+	allocator<string> alocs1;
+	auto const alocps1 = alocs1.allocate(5);
+	alocs1.destroy(alocps1);
+
+
+
+
+
+
+	return 0;
 }
 
 int mySpDeleter(std::shared_ptr<int> sp0)
