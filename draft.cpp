@@ -43,8 +43,8 @@ static int v = 0;
 int main(void)
 {
 	cin.clear();
-	/******************* const auto & and other keywords********************************/
 /*
+	//	const auto & and other keywords
 	// 	const int coni1 = 1;	int* p1 = &coni1;   普通指针不能指向const
 	//	int const i1 = 1;	int & r1 = i1;	普通引用不能引用const
 	int i2 = 11;		const int * const p2 = &i2;
@@ -83,8 +83,8 @@ int main(void)
 	//	std::cin >> data1.bookNo >> data1.units >> price;
 
 */
-	/******************************** initialization *******************************/
 /*
+	initialization
 	string initializers1;
 	string initializers2(initializers1);	//direct
 	string initializers3 = initializers1;	//copy
@@ -95,13 +95,10 @@ int main(void)
 	int initializera3{ 0 };	//direct
 	int initializera4(0);	//direct
 	initializers1.size();
-*/
-
-							/************************** string ********************************************/
-	
-	//	"132465".size();		//wrong!!! string literals are not STL strings;
+*/							
 /*
-	const string sss = "   " + initializers4;
+	
+	//	"132465".size();		//wrong!!! string literals are not STL strings;const string sss = "   " + initializers4;
 	for (auto& c : sss)
 	{
 		cout << c << endl;
@@ -119,8 +116,8 @@ int main(void)
 	}
 	cout << result << endl;
 */	
-	/************************** vector ****************************************************/
 /*
+	//		vector
 	vector<int> ivec;				//default initialization: ivec has no elements
 	ivec.push_back(2);
 	//vector<int&> rivec;			//Wrong references are not objects
@@ -138,21 +135,19 @@ int main(void)
 	vector<string> svec6{ 10 };
 	vector<string> svec7(10);
 */
-	/***************************** iterator ********************************/
+/*
+//	 iterator
+string s{"123456789"};
 
-
-	/*
-	string s{"123456789"};
-
-	string::iterator sit;
-	sit=s.begin();
-	string__const_iterator csit=s.cbegin();
-	string::size_type sst;
-	vector<int>::iterator ivecit;
-	vector<int>::size_type ivecst;
-	vector<int>::const_iterator iveccoit;
-	*/
-	/*
+string::iterator sit;
+sit=s.begin();
+string__const_iterator csit=s.cbegin();
+string::size_type sst;
+vector<int>::iterator ivecit;
+vector<int>::size_type ivecst;
+vector<int>::const_iterator iveccoit;
+*/
+/*
 	vector<string> svec{"abc","  ","def,","."," "};
 	vector<string>::iterator svecit=svec.begin();
 	++svecit;
@@ -161,23 +156,21 @@ int main(void)
 	++svecit;
 	cout<<*svecit<<endl;
 	*/
-
-	/*
+/*
 	string::difference_type sdt=s.cbegin()-s.cend();
-	*/
-
-	/************************************* Array  *************************/
-	/*
+*/
+/*
+	//		Array
 	int arr[]={1,2,3};
 	int a[3];
 	a=arr;          //Wrong
-	*/
-/*
+	
+
 	int a[5] = { 1,2,3,4,5 };
 	vector<int> ivec10(begin(a), end(a));
-*/
-	/****		Multidimentional Array	***/
-/*
+
+	
+
 	int mula[5][5][5] = { 0, };
 	for (auto& level1 : mula)
 		for (auto& level2 : level1)
@@ -186,10 +179,11 @@ int main(void)
 				cout << level3 << endl;
 			}
 */
-
-	/********************	Expressions	********************/
+/*
+	//Expressions	
 	//	cout << -100 % 3 << -100 % -3 << 100 % -3 << endl; // m%n has the same sigh as m
-	/*
+*/
+/*
 	int i = 5;
 	if (i)
 	cout << "i!=1 but is true" << endl;
@@ -202,9 +196,8 @@ int main(void)
 	int* iptr1 = 0;			//That works.
 	void* vptr1 = iptr1;		// ok
 */
-			/*						cast					*/		
-	//			static_cast
 /*
+	//		cast
 	int i = 1, j = 1;
 	double slope = static_cast<double>(j) / i;		
 	//			const_cast
@@ -215,15 +208,15 @@ int main(void)
 	void* va=nullptr;
 	int i4 = reinterpret_cast<int>(va);
 */
-	/**************			try blocks and exception handling		******************/
-	//	throw expression
 /*
+	//	throw expression
+
 	if (1)
 		throw runtime_error("Here is an exception");
-*/
-	
-	/*************		Container		*******************************/
+*/	
 /*
+	//		Container		
+
 	forward_list<double> fld1(10, 10);
 	forward_list<int> fli1{ 1,2,3,4,5 };
 	list<double> lstd2(10, 10);
@@ -251,7 +244,6 @@ int main(void)
 	deque<string> dqstr3{ "a","1","3" };
 	dqstr3[1];
 */
-
 /*
 	int in1[10] = { 1,2 };
 	int in2[10] = in1;		//		error
@@ -269,7 +261,6 @@ int main(void)
 	arrin3.swap(arrin3);
 	swap(arrin1, arrin1);
 */
-
 /*
 	vector<int> vin1;
 	vector<int> vin2;
@@ -352,9 +343,9 @@ int main(void)
 	cout << vin4.capacity() << endl;
 	cout << vin4.size() << endl;
 */
-
-	/******				IOstream			****/
 /*
+	//			IOstream			
+
 	cin.eof();
 	cin.fail();
 	cin.bad();
@@ -396,8 +387,8 @@ int main(void)
 	}
 	std::shared_ptr<string> sdps1;
 */	
-
-	/*C*****			classes				****/
+/*
+	//			classes				
 	class globalscope
 	{
 	public:
@@ -406,8 +397,9 @@ int main(void)
 	};
 	globalscope a;
 	cout << a.testscope() << a.v << endl;
-
-	/************			dynamic memory				************/
+*/
+/*
+	//		dynamic memory			
 	int *newp1 = new (std::nothrow) int();
 	int *newp2 = new int[10];
 	int *newp3 = new int[10]();
@@ -435,14 +427,29 @@ int main(void)
 	allocator<string> alocs1;
 	auto const alocps1 = alocs1.allocate(5);
 	alocs1.destroy(alocps1);
+*/
 
-
-
+	// CopyControl
+	// CopyConstructor CopyAssignment Destructor
+	
 
 
 
 	return 0;
 }
+class CPctrl
+{
+public:
+	CPctrl() = default;
+	
+	CPctrl(const CPctrl& orig) { key = orig.key; ptos = new string; *ptos = *(orig.ptos); };
+	CPctrl& operator=(const CPctrl orig) { key = orig.key; ptos = new string; *ptos = *(orig.ptos); }
+	~CPctrl() { delete ptos; }
+private:
+	int key{ 10 };
+	string* ptos{ nullptr };
+
+};
 
 int mySpDeleter(std::shared_ptr<int> sp0)
 {

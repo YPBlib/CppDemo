@@ -1,3 +1,4 @@
+#pragma once
 #ifndef TTRY_H
 #define TTRY_Y
 #include<cstdio>
@@ -93,4 +94,5 @@ private:
 };
 classcons::classcons(int j) :i(j), ci(j) {}
 classcons::classcons(void) : i(0), ci(0) {}
+
 #endif
