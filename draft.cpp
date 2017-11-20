@@ -40,6 +40,7 @@ using std::nounitbuf;
 using std::allocator;
 using std::runtime_error;
 static int v = 0;
+
 int main(void)
 {
 	cin.clear();
@@ -431,25 +432,14 @@ vector<int>::const_iterator iveccoit;
 
 	// CopyControl
 	// CopyConstructor CopyAssignment Destructor
-	
+	// 
+
 
 
 
 	return 0;
 }
-class CPctrl
-{
-public:
-	CPctrl() = default;
-	
-	CPctrl(const CPctrl& orig) { key = orig.key; ptos = new string; *ptos = *(orig.ptos); };
-	CPctrl& operator=(const CPctrl orig) { key = orig.key; ptos = new string; *ptos = *(orig.ptos); }
-	~CPctrl() { delete ptos; }
-private:
-	int key{ 10 };
-	string* ptos{ nullptr };
 
-};
 
 int mySpDeleter(std::shared_ptr<int> sp0)
 {

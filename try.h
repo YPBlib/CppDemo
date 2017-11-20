@@ -95,4 +95,18 @@ private:
 classcons::classcons(int j) :i(j), ci(j) {}
 classcons::classcons(void) : i(0), ci(0) {}
 
+class CPctrl
+{
+public:
+	CPctrl() = default;
+
+	CPctrl(const CPctrl& orig) { key = orig.key; ptos = new string; *ptos = *(orig.ptos); };
+	CPctrl& operator=(const CPctrl orig) { key = orig.key; ptos = new string; *ptos = *(orig.ptos); }
+	~CPctrl() { delete ptos; }
+private:
+	int key{ 10 };
+	string* ptos{ nullptr };
+
+};
+
 #endif
