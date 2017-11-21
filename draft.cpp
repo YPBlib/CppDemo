@@ -17,6 +17,7 @@
 #include<string>
 #include<memory>
 #include<new>
+#include<utility>
 #include"try.h"
 //using namespace::std;
 using std::vector;
@@ -429,12 +430,23 @@ vector<int>::const_iterator iveccoit;
 	auto const alocps1 = alocs1.allocate(5);
 	alocs1.destroy(alocps1);
 */
-
+/*
+	// Dynamic Memory
+	std::unique_ptr<string[]> ptrl(new string[10]);
+	ptrl.release();
+	std::allocator<string> alloc;
+	auto z = alloc.allocate(10);
+	alloc.construct(z," ");
+	alloc.destroy(z);
+	alloc.deallocate(z, 10);
+*/
+/*	
 	// CopyControl
 	// CopyConstructor CopyAssignment Destructor
-	// 
-
-
+	// rvalue
+	int i3 = 5;
+	int&& rr = std::move(i3);
+*/
 
 
 	return 0;
