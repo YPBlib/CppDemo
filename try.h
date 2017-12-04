@@ -107,7 +107,7 @@ private:
 
 };
 template <typename T> 
-using twin = pair<T, T>;
+using twin = std::pair<T, T>;
 template <typename T>
 int compare(const T& b1, const T& v2)
 {
@@ -169,8 +169,18 @@ class hasStaticMember
 public:
 	static std::size_t count() { return ctr; }
 private:
-	static std::size_t str;
+	static std::size_t ctr;
 };
 template <typename T>
 std::size_t hasStaticMember<T>::ctr = 0;
+
+template <typename T,typename F=less<T>>
+int compare(const T& v1, const T& v2, F f = F())
+{
+	if (f(v1, v2)) return -1;
+	if (f(v2, v1)) return 1;
+	return 0;
+}
+
+
 #endif
