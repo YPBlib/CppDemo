@@ -20,6 +20,7 @@
 #include<utility>
 #include<functional>
 #include"try.h"
+#include"oop.hpp"
 //using namespace::std;
 using std::vector;
 using std::deque;
@@ -448,10 +449,13 @@ vector<int>::const_iterator iveccoit;
 	int i3 = 5;
 	int&& rr = std::move(i3);
 */
+/*
 	typename int x = 0;
 	hasStaticMember<string> tems1, tems2;
 	hasStaticMember<int> tplti1, tplti2;
-
+*/
+	auto quote1 = Quote("97870000", 0.);
+	
 	return 0;
 }
 
