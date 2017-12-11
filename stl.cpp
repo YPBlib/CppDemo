@@ -1,6 +1,3 @@
-#pragma once
-#ifndef TTRY_H
-#define TTRY_Y
 #include<cstdio>
 #include<iostream>
 #include<ios>
@@ -22,6 +19,12 @@
 #include<new>
 #include<utility>
 #include<functional>
+#include<map>
+#include<set>
+#include<unordered_map>
+#include<unordered_set>
+#include<regex>
+#include"try.h"
 //using namespace::std;
 using std::vector;
 using std::deque;
@@ -43,11 +46,30 @@ using std::ostringstream;
 using std::nounitbuf;
 using std::allocator;
 using std::runtime_error;
-class friendfunction;
-class friendlyclass;
-class adt;
+using std::regex;
+using std::smatch;
+using std::regex_search;
+using std::regex_match;
+using std::regex_replace;
+using std::sregex_iterator;
+using std::ssub_match;
+int c11regex(void);
+void c11stl(void)
+{
+	c11regex();
+	
+	return;
+}
 
-void c11stl(void);
-
-
-#endif
+int c11regex(void)
+{
+	string pattern("[^c]ei");
+	pattern = "[[:alpha:]]" + pattern + "[[:alpha:]]*";
+	regex r(pattern,regex::icase);
+	smatch results;
+	string re_test1 = "receipt freind theif receive";
+	if (regex_search(re_test1, results, r))
+		cout << results.str() << endl;
+	
+	return 0;
+}

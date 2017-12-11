@@ -1,6 +1,3 @@
-#pragma once
-#ifndef TTRY_H
-#define TTRY_Y
 #include<cstdio>
 #include<iostream>
 #include<ios>
@@ -22,6 +19,7 @@
 #include<new>
 #include<utility>
 #include<functional>
+#include"try.h"
 //using namespace::std;
 using std::vector;
 using std::deque;
@@ -43,11 +41,13 @@ using std::ostringstream;
 using std::nounitbuf;
 using std::allocator;
 using std::runtime_error;
-class friendfunction;
-class friendlyclass;
-class adt;
-
-void c11stl(void);
 
 
-#endif
+int main(void)
+{
+	cin.clear();
+	c11stl();
+
+	
+	return 0;
+}
