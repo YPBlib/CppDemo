@@ -42,51 +42,17 @@ using std::ostringstream;
 using std::nounitbuf;
 using std::allocator;
 using std::runtime_error;
-class friendfunction
+
+class sales
 {
 public:
-	double fetchdouble(const adt& a);
-	double fetchdouble(void);
+	string isbn()const;
+	string bookNo;
 };
-class adt
+
+string sales::isbn()const
 {
-public:
-	friend double friendfunction::fetchdouble(const adt& a);
-	friend class friendlyclass;
-	typedef int adtint;
-	string fetchname() const { return this->name; }
-	static constexpr double commonvalue = 0;
-private:
-	string name;
-	int integer;
-	double f;
-};
-double friendfunction::fetchdouble(const adt& a)
-{
-	return a.f;
+	return bookNo;
 }
-double friendfunction::fetchdouble(void)
-{
-	adt a;
-	//  return a.f;		//Wrong
-	return 0.;
-}
-class friendlyclass
-{
-public:
-	int fetchinteger(adt& a) { return a.integer; }
-};
-class classcons
-{
-public:
-	classcons(int j);
-	explicit classcons();
-private:
-	int i;
-	const int ci;
-
-};
-
-
 
 
