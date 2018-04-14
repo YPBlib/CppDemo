@@ -46,65 +46,11 @@ using std::runtime_error;
 class friendfunction;
 class friendlyclass;
 class adt;
-class friendfunction
-{
-public:
-	double fetchdouble(const adt& a);
-	double fetchdouble(void);
-};
-class adt
-{
-public:
-	friend double friendfunction::fetchdouble(const adt& a);
-	friend class friendlyclass;
-	typedef int adtint;
-	string fetchname() const { return this->name; }
-	adt& merge(const adt& a);
-	static constexpr double commonvalue = 0;
-private:
-	string name;
-	int integer;
-	double f;
-};
-double friendfunction::fetchdouble(const adt& a)
-{
-	return a.f;
-}
-double friendfunction::fetchdouble(void)
-{
-	adt a;
-//  return a.f;		//Wrong
-	return 0.;
-}
-class friendlyclass
-{
-public:
-	int fetchinteger(adt& a) { return a.integer; }
-};
-class classcons
-{
-public:
-	classcons(int j);
-	explicit classcons();
-private:
-	int i;
-	const int ci;
 
-};
-classcons::classcons(int j) :i(j), ci(j) {}
-classcons::classcons(void) : i(0), ci(0) {}
-class CPctrl
-{
-public:
-	CPctrl() = default;
+void c11stl(void);
 
-	CPctrl(const CPctrl& orig) { key = orig.key; ptos = new string; *ptos = *(orig.ptos); };
-	CPctrl& operator=(const CPctrl orig) { key = orig.key; ptos = new string; *ptos = *(orig.ptos); }
-	~CPctrl() { delete ptos; }
-private:
-	int key{ 10 };
-	string* ptos{ nullptr };
 
+<<<<<<< HEAD:tcpp.h
 };
 template <typename T> 
 using twin = std::pair<T, T>;
@@ -173,4 +119,6 @@ private:
 };
 template <typename T>
 std::size_t typename hasStaticMember<T>::ctr = 0;
+=======
+>>>>>>> a7d2ec80c9248451f1d0c1b7b1b754d80403edac:try.h
 #endif
