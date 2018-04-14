@@ -3,7 +3,6 @@
 #include<ios>
 #include<fstream>
 #include<sstream>
-#include<cctype>
 #include<cstdlib>
 #include<typeinfo>
 #include<iterator>
@@ -40,8 +39,41 @@ using std::istringstream;
 using std::ostringstream;
 using std::nounitbuf;
 using std::allocator;
-using std::runtime_error;
-void draft(void)
+
+
+template <typename T>
+class hasStaticMember
+{
+public:
+	int count() { return ctr; }
+	void add(void)
+	{
+		++ctr;
+	}
+private:
+	static int ctr;
+	int tri = 0;
+};
+
+template <typename T>
+int hasStaticMember<T>::ctr;
+
+template <typename X=unsigned>
+X clacX(const X& a, const X& b)
+{
+	X tmp = a*b;
+	return tmp;
+}
+
+int main(void)
+{
+	
+	auto x = clacX<unsigned>(1, -1);
+	cout << x << endl;
+	return 0;
+}
+
+int draft(void)
 {
 	/*
 	//	const auto & and other keywords
@@ -445,22 +477,10 @@ void draft(void)
 	int i3 = 5;
 	int&& rr = std::move(i3);
 	*/
-	/*
-	typename int x = 0;
-	hasStaticMember<string> tems1, tems2;
-	hasStaticMember<int> tplti1, tplti2;
-<<<<<<< HEAD:tcpp.cpp
-	vector<int>::size_type q(0);
-	cout << q << endl;
+
 	return 0;
+
+
 }
 
-int mySpDeleter(std::shared_ptr<int> sp0)
-{
-	int temp = *sp0;
-	sp0 = nullptr;
-	return temp;
-=======
-	*/
->>>>>>> a7d2ec80c9248451f1d0c1b7b1b754d80403edac:draft.cpp
-}
+
