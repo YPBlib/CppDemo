@@ -19,7 +19,7 @@
 #include<new>
 #include<utility>
 #include<functional>
-#include"try.h"
+#include"tcpp.h"
 //using namespace::std;
 using std::vector;
 using std::deque;
@@ -451,7 +451,8 @@ vector<int>::const_iterator iveccoit;
 	typename int x = 0;
 	hasStaticMember<string> tems1, tems2;
 	hasStaticMember<int> tplti1, tplti2;
-
+	vector<int>::size_type q(0);
+	cout << q << endl;
 	return 0;
 }
 
