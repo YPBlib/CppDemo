@@ -63,11 +63,25 @@ X clacX(const X& a, const X& b)
 {
 	X tmp = a*b;
 	return tmp;
-}
-
+};
+class TestBoolInitialization
+{
+public:
+	int z;
+	bool xb;
+	bool xb2;
+	bool xb3;
+	bool xb4;
+	bool xb5;
+	TestBoolInitialization()
+	{
+		xb = true;
+	}
+};
 int main(void)
 {
-	
+	TestBoolInitialization xi = TestBoolInitialization();
+	xi.xb = xi.xb4;
 	auto x = clacX<unsigned>(1, -1);
 	cout << x << endl;
 	return 0;
