@@ -87,9 +87,9 @@ int main(void)
 	return 0;
 }
 
-int draft(void)
+void Const_Auto_Ref_Ptr_TCPP()
 {
-	/*
+	
 	//	const auto & and other keywords
 	// 	const int coni1 = 1;	int* p1 = &coni1;   普通指针不能指向const
 	//	int const i1 = 1;	int & r1 = i1;	普通引用不能引用const
@@ -107,8 +107,7 @@ int draft(void)
 	auto& atrii3 = r3;	//相关
 	auto& atriii3 = *pi3;		//相关
 
-	using inttwelve = int[12];
-	typedef inttwelve onefourfour[12];
+
 	//	decltype(i3) dpi3 ;		//相关
 	//	typedef decltype(*(&i3)) dpi3;		dpi3 wtf = i3;  //相关
 	//	decltype(i3=0) dpasri3 = i3;	//相关
@@ -123,14 +122,10 @@ int draft(void)
 	//	const int const* * const* p = nullptr;  //const的位置有没有其它方法
 	const int coni4 = 1;
 	//	auto z = p;		//z保留了几层const？？？
+}
 
-
-	double price = 0.;
-	//	std::cin >> data1.bookNo >> data1.units >> price;
-
-	*/
-	/*
-	initialization
+void Initialization_TCPP()
+{
 	string initializers1;
 	string initializers2(initializers1);	//direct
 	string initializers3 = initializers1;	//copy
@@ -141,58 +136,44 @@ int draft(void)
 	int initializera3{ 0 };	//direct
 	int initializera4(0);	//direct
 	initializers1.size();
-	*/
-	/*
-
-	//	"132465".size();		//wrong!!! string literals are not STL strings;const string sss = "   " + initializers4;
-	for (auto& c : sss)
-	{
-	cout << c << endl;
-	}
-	*/
-	/*
+}
+void String_TCPP()
+{
+	string ssr{ "erty" };
+	//	"132465".size();		//wrong!!! string literals are not STL strings;
+	const string sss = "   " + ssr;
 	const string hexdigits = "0123456789ABCDEF";
 	cout << "Enter digits<=15 ,seperated by ' ' , input 'q' when finished" << endl;
 	string result = "";
 	string::size_type n;
 	while (cin >> n)
 	{
-	if (n < hexdigits.size())
-	result += hexdigits[n];
+		if (n < hexdigits.size())
+			result += hexdigits[n];
 	}
 	cout << result << endl;
-	*/
-	/*
-	//		vector
-	vector<int> ivec;				//default initialization: ivec has no elements
-	ivec.push_back(2);
-	//vector<int&> rivec;			//Wrong references are not objects
-	vector<string> svec = { "a","an","the" };
-	for (auto c : svec)
-	{
-	//svec.push_back(c);			//Wrong! body of range for must not change the size of the sequence over which it is itersting
-	}
-	vector<string> svec1{ "a","an","the" };
-	//vector<string> svec12("a","an","the");		//wrong
-	vector<string> svec2(svec);
-	vector<string>svec3 = svec2;
-	vector<string> svec4(10, "ha");
-	vector<string>svec5{ 10,"ha" };
-	vector<string> svec6{ 10 };
-	vector<string> svec7(10);
-	*/
-	/*
+}
+	
+void iterator_TCPP()
+{
 	//	 iterator
-	string s{"123456789"};
+	string s{ "123456789" };
 
 	string::iterator sit;
-	sit=s.begin();
-	string__const_iterator csit=s.cbegin();
+	sit = s.begin();
+	
 	string::size_type sst;
 	vector<int>::iterator ivecit;
 	vector<int>::size_type ivecst;
 	vector<int>::const_iterator iveccoit;
-	*/
+}
+	
+	
+	
+	
+	
+	
+	
 	/*
 	vector<string> svec{"abc","  ","def,","."," "};
 	vector<string>::iterator svecit=svec.begin();
