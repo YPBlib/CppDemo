@@ -19,26 +19,8 @@
 #include<utility>
 #include<functional>
 #include"tcpp.h"
-//using namespace::std;
-using std::vector;
-using std::deque;
-using std::list;
-using std::forward_list;
-using std::array;
-using std::string;
-using std::cin;
-using std::cout;
-using std::endl;
-using std::begin;
-using std::end;
-using std::istream;
-using std::ostream;
-using std::ifstream;
-using std::ofstream;
-using std::istringstream;
-using std::ostringstream;
-using std::nounitbuf;
-using std::allocator;
+using namespace::std;
+
 
 
 template <typename T>
@@ -78,14 +60,6 @@ public:
 		xb = true;
 	}
 };
-int main(void)
-{
-	TestBoolInitialization xi = TestBoolInitialization();
-	xi.xb = xi.xb4;
-	auto x = clacX<unsigned>(1, -1);
-	cout << x << endl;
-	return 0;
-}
 
 void Const_Auto_Ref_Ptr_TCPP()
 {
@@ -124,19 +98,120 @@ void Const_Auto_Ref_Ptr_TCPP()
 	//	auto z = p;		//z±£ÁôÁË¼¸²ãconst£¿£¿£¿
 }
 
+
+// init
 void Initialization_TCPP()
 {
+	// There are 6 kinds of init, as far as I know,
+	// default direct value copy list move
+
+	// default init CppPrimer $2.2.1 P43
 	string initializers1;
-	string initializers2(initializers1);	//direct
-	string initializers3 = initializers1;	//copy
-	string initializers4 = "123465";	//copy
-	string initializers5(100, 'a');	//direct
-	int initializera1 = 0;  //copy
-	int initializera2 = { 0 };	//copy
-	int initializera3{ 0 };	//direct
-	int initializera4(0);	//direct
-	initializers1.size();
+	int x;
+
+	// !! one should not tell by whether using = or () to tell copy-ctor or direct-ctor
+	// for now, i think the difference between the two is that,
+	// copy-ctor uses an already-existing object to init another
+	// direct-ctor uses some args to init the object !!
+
+	//direct init CppPrimer $3.2.1 P84
+	string initializers2("fghijklmn");
+	string initializers5(100, 'a');
+	int initializera3{ 0 };
+	int initializera4(0);
+
+	// copy init CppPrimer $3.2.1 P84
+	string initializers6(initializers2);
+	string initializers3 = initializers1;
+	int initializera1 = 0;
+	int initializera2 = { 0 };
+	// implicit copy ctor
+	string initializers4 = "123465";
+	
+	
+	// value init CppPrimer $3.3.1 P98
+	vector<int> init_vec1(10, 5);
+	vector<string> init_str(10, "abcde");
+
+	// list init
+	vector<int> init_vec2{ 1,2,3,4,5 };
+	vector<bool> init_vec3{ true,false,true,true,false };
+
+	//I don't like this kind...it's wierd
+	vector<string> vec_str1{ 10 };
+	vector<string> vec_str2{ 10,"abc" };
+
 }
+
+class init_class1
+{
+	// for class member, you can use assign `=`,curly `{}` to init them , 
+	// but not `()`
+	int x = 1;
+	int y{ 2 };
+	//int z(3); //wrong
+};
+
+class init_class2
+{
+public:
+	int i;
+
+	init_class2() = default;
+	// set copy construct to be explicit may cause trouble
+	explicit init_class2(const init_class2& b)
+	{
+		i = b.i;
+	}
+	init_class2& operator=(const init_class2& b)
+	{
+		i = b.i;
+		return *this;
+	}
+
+	/*
+	int main(void)
+{
+	init_class2 x1;
+	init_class2 x2 = x1; // error, because of `explicit`
+	return 0;
+}
+	*/
+};
+
+// constructor
+
+class Constructor_Class
+{
+	int i;
+};
+
+/*
+class Constructor_Class2
+{
+public:
+	Constructor_Class2(int a):a(a) // init must be put here!
+	{
+		// here is assign ,not init
+		b = a;  // error
+		c = a;  // erroe
+	}
+private:
+	int a;
+	const int b;
+	int& c;
+};
+*/
+
+void Constructor_TCPP()
+{
+	// all below call constructor
+	Constructor_Class x;
+	auto a = new Constructor_Class;
+	auto a = new Constructor_Class();
+}
+
+
 void String_TCPP()
 {
 	string ssr{ "erty" };
@@ -170,7 +245,11 @@ void iterator_TCPP()
 	
 	
 	
+int main(void)
+{
 	
+	return 0;
+}
 	
 	
 	
@@ -183,9 +262,11 @@ void iterator_TCPP()
 	++svecit;
 	cout<<*svecit<<endl;
 	*/
+
 	/*
 	string::difference_type sdt=s.cbegin()-s.cend();
 	*/
+
 	/*
 	//		Array
 	int arr[]={1,2,3};
@@ -206,10 +287,12 @@ void iterator_TCPP()
 	cout << level3 << endl;
 	}
 	*/
+
 	/*
 	//Expressions
 	//	cout << -100 % 3 << -100 % -3 << 100 % -3 << endl; // m%n has the same sigh as m
 	*/
+
 	/*
 	int i = 5;
 	if (i)
@@ -217,12 +300,14 @@ void iterator_TCPP()
 	if (i == true)
 	cout << "i !=1 but == true" << endl;
 	*/
+
 	/*
 	vector<int> veci{ 1,2,3,4,5 };
 	cout << sizeof(vector<vector<string> >) << sizeof(vector<string>) << sizeof(string) << endl;
 	int* iptr1 = 0;			//That works.
 	void* vptr1 = iptr1;		// ok
 	*/
+
 	/*
 	//		cast
 	int i = 1, j = 1;
@@ -235,12 +320,7 @@ void iterator_TCPP()
 	void* va=nullptr;
 	int i4 = reinterpret_cast<int>(va);
 	*/
-	/*
-	//	throw expression
 
-	if (1)
-	throw runtime_error("Here is an exception");
-	*/
 	/*
 	//		Container
 
@@ -271,10 +351,7 @@ void iterator_TCPP()
 	deque<string> dqstr3{ "a","1","3" };
 	dqstr3[1];
 	*/
-	/*
-	int in1[10] = { 1,2 };
-	int in2[10] = in1;		//		error
-	*/
+
 	/*
 	array<int, 10> arrin1{ 1,2,3,4 };
 	array<int, 10> arrin2 = arrin1;		//OK
@@ -288,6 +365,7 @@ void iterator_TCPP()
 	arrin3.swap(arrin3);
 	swap(arrin1, arrin1);
 	*/
+
 	/*
 	vector<int> vin1;
 	vector<int> vin2;
@@ -310,6 +388,7 @@ void iterator_TCPP()
 	cout << vin1.size() << endl;
 	cout << vin2.max_size() << endl;
 	*/
+
 	/*
 	list<int> lstin1(2, 1);
 	list<int> lstin2{ 3,4,5 };
@@ -329,11 +408,13 @@ void iterator_TCPP()
 	}
 	lstin1.emplace(lstin1.cend(), in1);
 	*/
+
 	/*
 	deque<int> dqin1{ 1,2,3 };
 	auto& in3 = dqin1[0];		//may cause UB
 	auto& in4 = dqin1.at(5);	//may cause exception
 	*/
+
 	/*
 	list<int> lstin3(10, 0);
 	lstin3.pop_front();
@@ -342,6 +423,7 @@ void iterator_TCPP()
 	lstin3.erase(lstin3.cbegin(), lstin3.cend());
 	lstin3.clear();
 	*/
+
 	/*
 	array<int, 4> arr4in1{ 5,6,7,8 };
 	forward_list<int> flstin1(0xf, 0);
@@ -358,6 +440,7 @@ void iterator_TCPP()
 	flstin1.resize(0x10);
 	flstin1.resize(0x20,0xff);
 	*/
+
 	/*
 	vector<int> vin4(3, 3);
 	vin4.reserve(60);
@@ -370,6 +453,7 @@ void iterator_TCPP()
 	cout << vin4.capacity() << endl;
 	cout << vin4.size() << endl;
 	*/
+
 	/*
 	//			IOstream
 
@@ -414,6 +498,7 @@ void iterator_TCPP()
 	}
 	std::shared_ptr<string> sdps1;
 	*/
+
 	/*
 	//			classes
 	class globalscope
@@ -425,6 +510,7 @@ void iterator_TCPP()
 	globalscope a;
 	cout << a.testscope() << a.v << endl;
 	*/
+
 	/*
 	//		dynamic memory
 	int *newp1 = new (std::nothrow) int();
@@ -455,6 +541,7 @@ void iterator_TCPP()
 	auto const alocps1 = alocs1.allocate(5);
 	alocs1.destroy(alocps1);
 	*/
+
 	/*
 	// Dynamic Memory
 	std::unique_ptr<string[]> ptrl(new string[10]);
@@ -465,6 +552,7 @@ void iterator_TCPP()
 	alloc.destroy(z);
 	alloc.deallocate(z, 10);
 	*/
+
 	/*
 	// CopyControl
 	// CopyConstructor CopyAssignment Destructor
@@ -473,9 +561,6 @@ void iterator_TCPP()
 	int&& rr = std::move(i3);
 	*/
 
-	return 0;
-
-
-}
+	
 
 
