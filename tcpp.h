@@ -33,10 +33,6 @@ using std::begin;
 template <typename T> 
 using twin = std::pair<T, T>;
 
-
-
-
-
 template <typename T>
 class longlonglongnameTemplate
 {
@@ -46,4 +42,24 @@ class longlonglongnameTemplate
 
 // template alias
 template <typename T> using llnt = longlonglongnameTemplate<T>;
+
+class A
+{
+public:
+	int a = 0;
+};
+
+class B :public A
+{
+
+public:
+	int b = 0;
+};
+
+
+
+
+
+
+
 #endif

@@ -18,7 +18,13 @@
 #include<new>
 #include<utility>
 #include<functional>
+#include<future>
+#include<thread>
+#include<chrono>
+#include<random>
+#include<exception>
 #include"tcpp.h"
+//#include<mpi.h>
 using namespace::std;
 
 
@@ -203,13 +209,7 @@ private:
 };
 */
 
-void Constructor_TCPP()
-{
-	// all below call constructor
-	Constructor_Class x;
-	auto a = new Constructor_Class;
-	auto a = new Constructor_Class();
-}
+
 
 
 void String_TCPP()
@@ -242,12 +242,50 @@ void iterator_TCPP()
 	vector<int>::size_type ivecst;
 	vector<int>::const_iterator iveccoit;
 }
+
+int doSomething(char c)
+{
+	std::default_random_engine der(c);
+	std::uniform_int_distribution<int> id(10, 1000);
+	for (int i = 0; i < 10; ++i)
+	{
+		this_thread::sleep_for(std::chrono::milliseconds(id(der)));
+		std::cout.put(c).flush();
+	}
+	return c;
+}
+
+int func1()
+{
+	return doSomething('.');
+}
+
+int func2()
+{
+	return doSomething('+');
+}
+
+
+void try_thread()
+{
+	std::cout << "starting fun1 in background, func2 in foreground" << std::endl;
+
+	std::future<int> result1(std::async(func1));
+
+	int result2 = func2();
+
+	auto result = result1.get() + result2;
+
+	std::cout << "\n func1()+funbc2() = " << result << std::endl;
+
+
 	
-	
-	
+
+}
+
 int main(void)
 {
-	
+	try_thread();
 	return 0;
 }
 	
