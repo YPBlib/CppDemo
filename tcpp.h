@@ -1,65 +1,20 @@
 #pragma once
 #ifndef TTRY_H
 #define TTRY_Y
-#include<cstdio>
+
+#include<future>
+#include<thread>
+#include<chrono>
+#include<random>
 #include<iostream>
-#include<ios>
-#include<fstream>
-#include<sstream>
-#include<cstdlib>
-#include<typeinfo>
-#include<iterator>
-#include<cstddef>
-#include<stdexcept>
-#include<vector>
-#include<deque>
-#include<list>
-#include<forward_list>
-#include<array>
-#include<string>
-#include<memory>
-#include<new>
-#include<utility>
-#include<functional>
-//using namespace::std;
-using std::vector;
-using std::string;
-using std::cin;
-using std::cout;
-using std::endl;
-using std::begin;
+#include<exception>
 
-
-template <typename T> 
-using twin = std::pair<T, T>;
-
-template <typename T>
-class longlonglongnameTemplate
+namespace tcpp_concurrency
 {
-	T a;
-	T* n;
-};
-
-// template alias
-template <typename T> using llnt = longlonglongnameTemplate<T>;
-
-class A
-{
-public:
-	int a = 0;
-};
-
-class B :public A
-{
-
-public:
-	int b = 0;
-};
-
-
-
-
-
-
+	int doSomething(char c);
+	int foo1();
+	int foo2();
+	int test();
+}
 
 #endif
