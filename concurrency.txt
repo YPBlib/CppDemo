@@ -1,0 +1,42 @@
+std::this_thread::yield
+std::this_thread::get_id
+std::this_thread::sleep_for
+std::this_thread::sleep_until
+
+async: may start or not
+
+future<>.get(): if not finished yet, blocked and get result
+without calling get(), there is no guarantee that future<> will ever be called.
+
+policy:
+std::launch::async, may throw std::system_error (if not possible to async )
+
+std::launch::async && std::launch::deferred
+即使没有 future<>.get(), async 一定会执行， defer可能不执行
+
+后台线程中抛异常：可以catch
+future<>.get()只能调用1次，之后是UB
+
+Waiting and Polling and future.get()
+
+-- 强制启动线程 --
+.gwt(): 只能1次
+.wait(): 是不是可以调用多次
+-- 以下两个不返回std::future_statu， 不强制启动线程 --
+.wait_for(*): 至多等待 *
+.wait_until(*): 等到时间点*
+
+future_status::deferred 	The function to calculate the result has not been started yet
+future_status::ready 	The result is ready (finished/returned)
+future_status::timeout 	The timeout has expired 
+
+
+
+
+
+
+
+
+
+
+
