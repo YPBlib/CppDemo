@@ -1,26 +1,10 @@
 #include "concurrency.h"
 #include "async.h"
+#include "shared_future.h"
 
 
 
 
-
-
-
-struct X
-{
-	int x = 0;
-	X(int x):x(x){}
-	int incre(int i) { return x += i; }
-};
-
-void test_async_member_func()
-{
-	cout << __FUNCTION__ << endl; 
-	X x(1);
-	auto result=std::async(&X::incre, std::ref(x), 2);
-	cout << result.get() << endl;
-}
 
 void test_promise()
 {
@@ -33,6 +17,8 @@ void test_promise()
 
 int main()
 {
-	test_async_pass_ref();
+	//test_shared_ref();
+	test_shared();
+
 	return 0;
 }
