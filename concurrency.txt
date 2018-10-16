@@ -35,5 +35,12 @@ future_status::timeout 	The timeout has expired
 实现 1 个惰性求值
 
 
+Class thread doesn’t have a launch policy.
+The C++ standard library always tries to start the passed functionality in a new  thread.
+If this  isn’t   possible, it throws a std::system_error with the error code resource_unavailable_try_again.
 
+lifetime
 
+std::terminate()
+std::exception_ptr eptr;
+std::current_exception();
