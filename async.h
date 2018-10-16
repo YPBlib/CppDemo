@@ -5,6 +5,7 @@
 
 #include "concurrency.h"
 int print10(char c);
+int printByRef(char& c);
 int print10a();
 int print10b();
 int test_async();
@@ -15,5 +16,7 @@ void test_async_excep();
 int quick();
 int accurate_but_slow();
 int speculative_exec();
+
+int test_async_pass_ref();
 
 #endif

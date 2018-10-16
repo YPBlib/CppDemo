@@ -33,5 +33,6 @@ void test_promise()
 
 int main()
 {
+	test_async_pass_ref();
 	return 0;
 }

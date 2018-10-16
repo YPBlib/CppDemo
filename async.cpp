@@ -29,6 +29,8 @@ int print10b()
 
 
 
+
+
 int test_async()
 {
 
@@ -95,7 +97,7 @@ void test_async_excep()
 #endif
 }
 
-/// 
+/*
 
 int quick();
 int accurate_but_slow();
@@ -119,7 +121,7 @@ int speculative_exec()
 	}
 }
 
-///
+*///
 
 /* poll
 
@@ -138,3 +140,81 @@ while(f.wait_for(chrono::seconds(0)!= future_status::ready))
 }
 }
 */
+
+
+/// some notes
+// 1. pass argument
+
+int test_async_pass_value()
+{
+	auto fA = std::async(print10, 'A');
+	auto fB = std::async(print10, 'B');
+
+	if (fA.wait_for(std::chrono::seconds(0)) != std::future_status::deferred ||
+		fB.wait_for(std::chrono::seconds(0)) != std::future_status::deferred)
+	{
+		while (fA.wait_for(std::chrono::seconds(0)) != std::future_status::ready&&
+			fB.wait_for(std::chrono::seconds(0)) != std::future_status::ready)
+		{
+			// why yield ???
+			std::this_thread::yield();	//  hint  to reschedule to the  next  thread
+		}
+		cout.put('\n').flush();
+		try
+		{
+			fA.get();
+			fB.get();
+		}
+		catch(const exception& e)
+		{
+			;
+		}
+	}
+	return 0;
+}
+
+int printByRef(char& c,int n)
+{
+	std::default_random_engine dre(c);
+	std::uniform_int_distribution<int> id(10, 1000);
+	for (int i = 0; i < 10; ++i)
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(id(dre)));
+		//std::this_thread::yield
+		//std::this_thread::get_id
+		//std::this_thread::sleep_until
+		cout << (int)(c += n) << " ";
+	}
+	return c;
+}
+
+// data race
+int test_async_pass_ref()
+{
+	char ch = '0';
+	auto fA = std::async([&] {printByRef(std::ref(ch),1); });
+	ch = '1';
+	auto fB = std::async([&] {printByRef(std::ref(ch),2); });
+
+	if (fA.wait_for(std::chrono::seconds(0)) != std::future_status::deferred ||
+		fB.wait_for(std::chrono::seconds(0)) != std::future_status::deferred)
+	{
+		while (fA.wait_for(std::chrono::seconds(0)) != std::future_status::ready&&
+			fB.wait_for(std::chrono::seconds(0)) != std::future_status::ready)
+		{
+			// why yield ???
+			std::this_thread::yield();	//  hint  to reschedule to the  next  thread
+		}
+		cout.put('\n').flush();
+	}
+	try
+	{
+		fA.get();
+		fB.get();
+	}
+	catch (const exception& e)
+	{
+		;
+	}
+	return 0;
+}
