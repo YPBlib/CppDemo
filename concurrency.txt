@@ -80,13 +80,17 @@ shared_state
 
 In the C++11 standard, a data race is defined as “two conflicting actions in different threads, at least one of which is not atomic, and neither happens before the other.”
 
+RAII principle (Resource Acquisition Is Initialization)
+std::lock_guard
 
 
 
 
 
-
-
+The C++ standard library permits the second attempt to throw a std::system_error with the error code resource_deadlock_would_occur if the platform detects such a deadlock.
+But this is not required and is often not the case.
+By using a recursive_mutex, this behavior is no problem.
+This mutex allows multiple locks by the same thread and releases the lock when the last corresponding unlock() call is called:
 
 
 
