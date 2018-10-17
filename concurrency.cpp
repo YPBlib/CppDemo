@@ -1,6 +1,7 @@
 #include "concurrency.h"
 #include "async.h"
 #include "shared_future.h"
+#include "promise.h"
 
 
 
@@ -18,7 +19,7 @@ void test_promise()
 int main()
 {
 	//test_shared_ref();
-	test_shared();
-
+	//test_shared();
+	test_thread();
 	return 0;
 }

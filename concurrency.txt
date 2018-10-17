@@ -20,9 +20,9 @@ future<>.get()只能调用1次，之后是UB
 Waiting and Polling and future.get()
 
 -- 强制启动线程 --
-.gwt(): 只能1次
-.wait(): 是不是可以调用多次
--- 以下两个不返回std::future_statu， 不强制启动线程 --
+.get(): 只能1次
+.wait(): 可以调用多次
+-- 以下两个不返回std::future_status， 不强制启动线程 --
 .wait_for(*): 至多等待 *
 .wait_until(*): 等到时间点*
 
@@ -44,3 +44,9 @@ lifetime
 std::terminate()
 std::exception_ptr eptr;
 std::current_exception();
+
+std::thread::detach:
+Separates the thread of execution from the thread object, allowing execution to continue independently. Any allocated resources will be freed once the thread exits. 
+detached thread: 任由其执行，失去对其的控制，线程结束后资源自动回收，注意不要让detached thread access lifetime 已经过期的对象/资源，所以尽量不要传引用
+
+
