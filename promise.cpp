@@ -60,6 +60,7 @@ int util_promise(std::promise<std::string>& p)
 	{
 		p.set_exception(std::current_exception());
 	}
+	return 0;
 }
 
 int test_promise()
@@ -81,5 +82,6 @@ int test_promise()
 	{
 		cerr << "excep" << endl;
 	}
+	return 0;
 }
 

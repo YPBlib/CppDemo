@@ -5,6 +5,13 @@ std::this_thread::sleep_until
 
 async: may start or not
 
+std::yield:
+暂时不理会此线程
+
+
+class future<>:
+represents the outcome of an operation.
+可以move 不能copy
 future<>.get(): if not finished yet, blocked and get result
 without calling get(), there is no guarantee that future<> will ever be called.
 
@@ -30,6 +37,10 @@ future_status::deferred 	The function to calculate the result has not been start
 future_status::ready 	The result is ready (finished/returned)
 future_status::timeout 	The timeout has expired 
 
+shared_future:
+.get()可以多次调用
+可以copy
+
 ---
 
 实现 1 个惰性求值
@@ -44,6 +55,9 @@ lifetime
 std::terminate()
 std::exception_ptr eptr;
 std::current_exception();
+rethrow_exception()
+
+
 quick_exit: 不清除静态 全局对象， 保证detached thread 的访问
 std::ref: 疑似返回 T& 和 const T&
 
@@ -52,10 +66,19 @@ Separates the thread of execution from the thread object, allowing execution to 
 detached thread: 任由其执行，失去对其的控制，线程结束后资源自动回收，注意不要让detached thread access lifetime 已经过期的对象/资源，所以尽量不要传引用
 总之，detached thread 很危险
 
+Note that get() blocks until the shared state is ready:
+block的意思是程序不会退出，还是连同其它线程一并阻塞？
 
+set_value_at_thread_exit()
+set_exception_at_thread_exit()
 
+shared_state
 
+---
 
+18.4
+
+In the C++11 standard, a data race is defined as “two conflicting actions in different threads, at least one of which is not atomic, and neither happens before the other.”
 
 
 

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include <cctype>
 #include <functional>
 #include <utility>
@@ -21,6 +22,7 @@ using std::endl;
 using std::cin;
 using std::cerr;
 using std::string;
+using std::vector;
 using std::exception;
 using std::runtime_error;
 
