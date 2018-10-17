@@ -42,3 +42,44 @@ int test_thread()
 	}
 	return 0;
 }
+
+int util_promise(std::promise<std::string>& p)
+{
+	try
+	{
+		cout << "cin a digit" << endl;
+		char c = cin.get();
+		if (isdigit(c))
+		{
+			string s = "accept " + c;
+			p.set_value(std::move(s));
+			return 0;
+		}
+	}
+	catch (const exception& e)
+	{
+		p.set_exception(std::current_exception());
+	}
+}
+
+int test_promise()
+{
+	try
+	{
+		std::promise<string> p;
+		std::thread t(util_promise, std::ref(p));
+		t.detach();
+
+		auto f(p.get_future());
+		cout << f.get() << endl;
+	}
+	catch (const exception& e)
+	{
+		cerr << "excep: " << e.what() << endl;
+	}
+	catch (...)
+	{
+		cerr << "excep" << endl;
+	}
+}
+

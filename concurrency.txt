@@ -44,9 +44,54 @@ lifetime
 std::terminate()
 std::exception_ptr eptr;
 std::current_exception();
+quick_exit: 不清除静态 全局对象， 保证detached thread 的访问
+std::ref: 疑似返回 T& 和 const T&
 
 std::thread::detach:
 Separates the thread of execution from the thread object, allowing execution to continue independently. Any allocated resources will be freed once the thread exits. 
 detached thread: 任由其执行，失去对其的控制，线程结束后资源自动回收，注意不要让detached thread access lifetime 已经过期的对象/资源，所以尽量不要传引用
+总之，detached thread 很危险
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
