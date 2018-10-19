@@ -13,9 +13,7 @@
 #include <exception>
 #include <future>
 #include <thread>
-#include <atomic>
-#include <mutex>
-#include <condition_variable>
+
 
 using std::cout;
 using std::endl;
