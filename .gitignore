@@ -295,7 +295,5 @@ __pycache__/
 *.xsd.cs
 
 *.out
-Draft/
-TCPP/
-concurrency/
+.vscode/
 
