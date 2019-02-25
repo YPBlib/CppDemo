@@ -2,7 +2,7 @@
 
 int poor;
 std::mutex mut;
-std::lock_guard<std::mutex> lg;
+//std::lock_guard<std::mutex> lg;
 
 
 enum coltype{INT,DOUBLE,STRING};
@@ -10,8 +10,6 @@ enum coltype{INT,DOUBLE,STRING};
 int poor_mutex()
 {
 	mut.lock();
-
-
 	mut.unlock();
 	return 0;
 }
@@ -26,8 +24,6 @@ struct school zju;
 
 int test_mutex()
 {
-	
-
 	return 0;
 }
 

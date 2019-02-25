@@ -9,7 +9,7 @@ template <typename T>T compare(const T & a, const T&b)
 	return a + b;
 }
 
-int main()
+int test_trait()
 {
 	int(*pf)(const int&, const int&) = compare;
 	int(*pf1)(const int&, const int&) = compare<int>;

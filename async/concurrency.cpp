@@ -113,25 +113,3 @@ namespace tcpp_concurrency
 	}
 }
 
-int main()
-{
-	//tcpp_concurrency::test_async();
-	//tcpp_concurrency::test_async_excep();
-	tcpp_concurrency::test_async_member_func();
-	
-	return 0;
-}
-
-
-int main()
-{
-	//test_shared_ref();
-	//test_shared();
-	//test_thread();
-	/* as a whole !!!
-	//auto r = test_race();
-	//cout << r << endl;
-	*/
-	
-	return 0;
-}
